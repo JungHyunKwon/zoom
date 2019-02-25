@@ -59,13 +59,13 @@ try {
 				
 				//소수가 숫자일 때
 				if(_isNumber(decimal)) {
-					var splitValue = value.toString().split('.'),
-						splitValue1 = splitValue[1];
+					var valueSplit = value.toString().split('.'),
+						valueSplit1 = valueSplit[1];
 					
 					//소숫점이 있을 때
-					if(splitValue1) {
-						splitValue[1] = splitValue1.substring(0, decimal);
-						result = parseFloat(splitValue.join('.'), 10);
+					if(valueSplit1) {
+						valueSplit[1] = valueSplit1.substring(0, decimal);
+						result = parseFloat(valueSplit.join('.'), 10);
 					}
 				}
 			}
