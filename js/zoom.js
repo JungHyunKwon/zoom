@@ -87,25 +87,28 @@
 			
 			//숫자일 때
 			if(_isNumeric(value)) {
-				var elementStyle = element.style || {};
-
-				//소숫점 두자리로 절사
-				value = _toFixed(value, 2);
+				var elementStyle = element.style;
 				
-				//값이 1일 때
-				if(value === 1) {
-					value = '';
+				//값이 있을 때
+				if(elementStyle) {
+					//소숫점 두자리로 절사
+					value = _toFixed(value, 2);
+					
+					//값이 1일 때
+					if(value === 1) {
+						value = '';
 
-				//값이 최솟값보다 작을 때
-				}else if(_minValue > value) {
-					value = _minValue;
-				}
+					//값이 최솟값보다 작을 때
+					}else if(_minValue > value) {
+						value = _minValue;
+					}
 
-				//트랜스폼을 지원할 때
-				if(_isSupportTransform) {
-					elementStyle.transform = (value) ? 'scale(' + value + ')' : value;
-				}else{
-					elementStyle.zoom = value;
+					//트랜스폼을 지원할 때
+					if(_isSupportTransform) {
+						elementStyle.transform = (value) ? 'scale(' + value + ')' : value;
+					}else{
+						elementStyle.zoom = value;
+					}
 				}
 			}
 		}
